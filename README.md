@@ -1,2 +1,2 @@
-# ctf_lab
+# CTF_LAB
 Upwork client ctf project
