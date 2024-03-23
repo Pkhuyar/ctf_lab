@@ -1,0 +1,30 @@
+version: '3.1'
+
+services:
+  php-apache:
+    build: .
+    ports:
+      - "8086:80"  # External port 8086 is mapped to container's port 80
+    depends_on:
+      - mysql
+    volumes:
+      - ./Lab_1:/var/www/html/Lab_1
+      - ./Lab_2:/var/www/html/Lab_2
+      - ./landing.html:/var/www/html/landing.html
+      - ./background_img.jpg:/var/www/html/background_img.jpg
+
+  mysql:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: raj
+      MYSQL_DATABASE: ctf_lab
+      MYSQL_USER: raj
+      MYSQL_PASSWORD: raj
+    ports:
+      - "3311:3306"  # External port 3311 is mapped to container's port 3306
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./init_db.sql:/docker-entrypoint-initdb.d/init_db.sql  # Mount the SQL script for execution
+
+volumes:
+  db_data:
