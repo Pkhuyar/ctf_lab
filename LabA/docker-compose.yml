@@ -8,7 +8,7 @@ services:
     depends_on:
       - mysql
     volumes:
-      - ./Lab_1:/var/www/html/Lab_1
+      - ./Lab_A:/var/www/html/Lab_A
        #./Lab_2:/var/www/html/Lab_2
       - ./landing.html:/var/www/html/landing.html
       - ./background_img.jpg:/var/www/html/background_img.jpg
